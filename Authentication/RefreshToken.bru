@@ -31,4 +31,9 @@ tests {
     const data = res.getBody();
     expect(res.body.value.refreshToken).to.not.be.undefined;
   });
+  
+  test('Should return true isSuccess', () => {
+    const data = res.getBody();
+    expect(res.body.isSuccess).to.equal(true);
+  });
 }

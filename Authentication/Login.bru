@@ -11,7 +11,7 @@ post {
 }
 
 auth:bearer {
-  token:
+  token: 
 }
 
 body:json {
@@ -21,13 +21,17 @@ body:json {
   }
 }
 
+assert {
+  res.body.value.isSuccess: eq true
+}
+
 script:post-response {
   if (res.status === 200 && res.body?.value?.accessToken) {
     bru.setEnvVar('refreshToken', res.body.value.refreshToken);
   } else {
     bru.setEnvVar('token', '');
   }
-
+  
   if (res.status === 200 && res.body?.value?.refreshToken) {
     bru.setEnvVar('refreshToken', res.body.value.refreshToken);
   } else {
@@ -40,14 +44,19 @@ tests {
     const data = res.getBody();
     expect(res.getStatus()).to.equal(200);
   });
-
+  
   test('Should be able to get token', () => {
     const data = res.getBody();
     expect(res.body.value.accessToken).to.not.be.undefined;
   });
-
+  
   test('Should be able to get refresh token', () => {
     const data = res.getBody();
     expect(res.body.value.refreshToken).to.not.be.undefined;
+  });
+  
+  test('Should return true isSuccess', () => {
+    const data = res.getBody();
+    expect(res.body.isSuccess).to.equal(true);
   });
 }
