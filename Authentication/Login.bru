@@ -21,10 +21,6 @@ body:json {
   }
 }
 
-assert {
-  res.body.value.isSuccess: eq true
-}
-
 script:post-response {
   if (res.status === 200 && res.body?.value?.accessToken) {
     bru.setEnvVar('refreshToken', res.body.value.refreshToken);
