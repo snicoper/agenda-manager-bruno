@@ -1,0 +1,17 @@
+meta {
+  name: GetRolesPaginated
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/roles/paginated?pageNumber=1&pageSize=255&filters=[{"propertyName":"name","relationalOperator":"eq","value":"Employee","logicalOperator":" "}]
+  body: none
+  auth: none
+}
+
+params:query {
+  pageNumber: 1
+  pageSize: 255
+  filters: [{"propertyName":"name","relationalOperator":"eq","value":"Employee","logicalOperator":" "}]
+}

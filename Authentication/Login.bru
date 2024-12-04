@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: {{base_url}}/authentication/login
+  url: {{base_url}}/auth/login
   body: json
   auth: bearer
 }
@@ -22,13 +22,13 @@ body:json {
 }
 
 script:post-response {
-  if (res.status === 200 && res.body?.value?.accessToken) {
-    bru.setEnvVar('refreshToken', res.body.value.refreshToken);
+  if (res.status === 201 && res.body?.value?.accessToken) {
+    bru.setEnvVar('accessToken', res.body.value.accessToken);
   } else {
     bru.setEnvVar('token', '');
   }
   
-  if (res.status === 200 && res.body?.value?.refreshToken) {
+  if (res.status === 201 && res.body?.value?.refreshToken) {
     bru.setEnvVar('refreshToken', res.body.value.refreshToken);
   } else {
     bru.setEnvVar('refreshToken', '');
@@ -38,7 +38,7 @@ script:post-response {
 tests {
   test('Should be able to login', () => {
     const data = res.getBody();
-    expect(res.getStatus()).to.equal(200);
+    expect(res.getStatus()).to.equal(201);
   });
   
   test('Should be able to get token', () => {
