@@ -1,0 +1,18 @@
+meta {
+  name: GetCalendarsPaginated
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/calendars/paginated
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "pageNumber": 1,
+    "pageSize": 25
+  }
+}

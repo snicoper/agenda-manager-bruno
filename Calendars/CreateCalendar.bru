@@ -1,0 +1,19 @@
+meta {
+  name: CreateCalendar
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/calendars
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Test calendar",
+    "description": "Teest calendar description",
+    "ianaTimeZone": "Europe/Madrid"
+  }
+}
