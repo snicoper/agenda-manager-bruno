@@ -1,0 +1,18 @@
+meta {
+  name: UpdateCalendar
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{base_url}}/calendars/bec81e6c-6bff-45f2-a8a1-3daa82de4d5e
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "New name",
+    "description": "New description"
+  }
+}

@@ -1,0 +1,21 @@
+meta {
+  name: UpdateCalendarSettings
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{base_url}}/calendars/0fa5bd8e-89d1-4c34-8015-80f820b5d0bb/settings
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "timezone": "Europe/Madrid",
+    "appointmentConfirmation": 1,
+    "appointmentOverlapping": 2,
+    "holidayConflict": 2,
+    "resourceSchedulesAvailability": 1
+  }
+}
