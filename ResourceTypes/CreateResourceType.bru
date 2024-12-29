@@ -1,0 +1,27 @@
+meta {
+  name: CreateResourceType
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base_url}}/resource-types
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Test resource type",
+    "description": "Description create new resource type",
+    "category": 1
+  }
+}
+
+script:post-response {
+  if (res.status === 201 && res.body?.value?.resourceTypeId) {
+    bru.setEnvVar('resourceTypeCreate', res.body.value.resourceTypeId);
+  } else {
+    bru.setEnvVar('resourceTypeCreate', '');
+  }
+}

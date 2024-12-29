@@ -5,7 +5,7 @@ meta {
 }
 
 put {
-  url: {{base_url}}/calendars/0fa5bd8e-89d1-4c34-8015-80f820b5d0bb/settings
+  url: {{base_url}}/calendars/659f28fa-1b62-4eed-83d9-05ffa3a7ad89/settings
   body: json
   auth: none
 }
@@ -13,9 +13,9 @@ put {
 body:json {
   {
     "timezone": "Europe/Madrid",
-    "appointmentConfirmation": 1,
+    "appointmentConfirmationRequirement": 1,
     "appointmentOverlapping": 2,
     "holidayConflict": 2,
-    "resourceSchedulesAvailability": 1
+    "resourceScheduleValidation": 1
   }
 }

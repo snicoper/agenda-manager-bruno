@@ -1,0 +1,11 @@
+meta {
+  name: DeleteResourceType
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{base_url}}/resource-types/{{resourceTypeCreate}}
+  body: none
+  auth: none
+}
