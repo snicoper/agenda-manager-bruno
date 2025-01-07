@@ -16,3 +16,11 @@ body:json {
     "pageSize": 25
   }
 }
+
+script:post-response {
+  if (res.status === 200 && res.body?.value?.items.length > 0) {
+    bru.setEnvVar('calendarId', res.body.value.items[0].calendarId);
+  } else {
+    bru.setEnvVar('calendarId', '');
+  }
+}

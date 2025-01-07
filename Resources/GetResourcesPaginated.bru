@@ -1,0 +1,23 @@
+meta {
+  name: GetResourcesPaginated
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base_url}}/resources/paginated
+  body: none
+  auth: none
+}
+
+headers {
+  X-Calendar-Id: {{calendarId}}
+}
+
+script:post-response {
+  if (res.status === 200 && res.body?.value?.items.length > 0) {
+    bru.setEnvVar('resourceId', res.body.value.items[0].resourceId);
+  } else {
+    bru.setEnvVar('resourceId', '');
+  }
+}

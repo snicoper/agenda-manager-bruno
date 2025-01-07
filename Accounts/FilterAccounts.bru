@@ -1,0 +1,16 @@
+meta {
+  name: FilterAccounts
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base_url}}/accounts/filter?term=carol&pageSize=2
+  body: none
+  auth: none
+}
+
+params:query {
+  term: carol
+  pageSize: 2
+}

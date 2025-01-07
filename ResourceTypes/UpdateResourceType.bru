@@ -1,0 +1,18 @@
+meta {
+  name: UpdateResourceType
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{base_url}}/resource-types/{{resourceTypeCreate}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "new name",
+    "description": "new description"
+  }
+}

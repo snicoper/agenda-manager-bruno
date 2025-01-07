@@ -1,0 +1,22 @@
+meta {
+  name: CreateAccount
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/accounts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "test@example.com",
+    "firstName": "test",
+    "lastName": "test",
+    "roles": [
+      "1066fd2c-b381-45c7-b87a-1995ff200ce4"
+    ]
+  }
+}

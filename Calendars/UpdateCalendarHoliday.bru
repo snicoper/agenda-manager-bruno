@@ -1,0 +1,19 @@
+meta {
+  name: UpdateCalendarHoliday
+  type: http
+  seq: 13
+}
+
+put {
+  url: {{base_url}}/calendars/{{calendarId}}/holidays/f102580c-1946-48a7-8e56-84bb77a53021
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Prueba test 2",
+    "start": "2025-01-05T23:00:00+00:00",
+    "end": "2025-01-08T22:59:00+00:00"
+  }
+}

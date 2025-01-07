@@ -1,0 +1,20 @@
+meta {
+  name: CreateCalendarHoliday
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{base_url}}/calendars/{{calendarId}}/holidays
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "calendarId": "bc384de6-2adc-4506-8941-0d93ef049756",
+    "name": "Festivo",
+    "start": "2025-01-01T23:00:00.294Z",
+    "end": "2025-01-02T22:59:59.294Z"
+  }
+}

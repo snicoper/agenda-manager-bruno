@@ -1,0 +1,18 @@
+meta {
+  name: UpdateAvailableDays
+  type: http
+  seq: 12
+}
+
+put {
+  url: {{base_url}}/calendars/bc384de6-2adc-4506-8941-0d93ef049756/available-days
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    // 45, 63, 31
+    "availableDays": 31
+  }
+}

@@ -1,11 +1,11 @@
 meta {
   name: GetCalendarSettings
   type: http
-  seq: 3
+  seq: 4
 }
 
 get {
-  url: {{base_url}}/calendars/659f28fa-1b62-4eed-83d9-05ffa3a7ad89/settings
+  url: {{base_url}}/calendars/{{calendarId}}/settings
   body: none
   auth: none
 }
