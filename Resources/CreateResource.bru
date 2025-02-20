@@ -1,0 +1,30 @@
+meta {
+  name: CreateResource
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{base_url}}/resources
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "userId": null,
+    "resourceTypeId": "08df99fd-d987-40bc-8fb4-86ae85223772",
+    "name": "Prueba resource",
+    "description": "Description",
+    "textColor": "#ffffff",
+    "backgroundColor": "#000000"
+  }
+}
+
+script:post-response {
+  if (res.status === 200 && res.body?.value?.resourceId > 0) {
+    bru.setEnvVar('resourceId', res.body.value.resourceId);
+  } else {
+    bru.setEnvVar('resourceId', '');
+  }
+}

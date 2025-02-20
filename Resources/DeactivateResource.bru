@@ -1,0 +1,17 @@
+meta {
+  name: DeactivateResource
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{base_url}}/resources/{{resourceId}}/deactivate
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "deactivationReason": "Test de desactivación"
+  }
+}

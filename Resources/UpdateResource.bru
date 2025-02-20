@@ -1,0 +1,20 @@
+meta {
+  name: UpdateResource
+  type: http
+  seq: 7
+}
+
+put {
+  url: {{base_url}}/resources/{{resourceId}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Resource update",
+    "description": "Update resource",
+    "textColor": "#000000",
+    "backgroundColor": "#ffffff"
+  }
+}

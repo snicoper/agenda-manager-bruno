@@ -10,10 +10,6 @@ get {
   auth: none
 }
 
-headers {
-  X-Calendar-Id: {{calendarId}}
-}
-
 script:post-response {
   if (res.status === 200 && res.body?.value?.items.length > 0) {
     bru.setEnvVar('resourceId', res.body.value.items[0].resourceId);
